@@ -61,10 +61,12 @@ function changePlayer() {
 function checkWin() {
   if (p1Score > 9) {
     gameOver = true;
+    dice.classList.add('hidden');
     p1Section.classList.remove('player--active');
     p1Section.classList.add('player--winner');
   } else if (p2Score > 9) {
     gameOver = true;
+    dice.classList.add('hidden');
     p2Section.classList.remove('player--active');
     p2Section.classList.add('player--winner');
   }
@@ -133,6 +135,7 @@ function updateCurrentScore(number) {
 }
 
 function updateDice(number) {
+  dice.classList.remove('hidden');
   dice.src = `dice-${number}.png`;
 }
 
