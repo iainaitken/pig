@@ -25,20 +25,24 @@ let turn = 'p1';
 // Event Listeners
 
 btnHold.addEventListener('click', function () {
-  updateScore();
-  checkWin();
-  endTurn();
+  if (!gameOver) {
+    updateScore();
+    checkWin();
+    endTurn();
+  }
 });
 
 btnNew.addEventListener('click', newGame);
 
 btnRoll.addEventListener('click', function () {
-  const number = randomNumber();
-  updateDice(number);
-  if (number > 1) {
-    updateCurrentScore(number);
-  } else {
-    endTurn();
+  if (!gameOver) {
+    const number = randomNumber();
+    updateDice(number);
+    if (number > 1) {
+      updateCurrentScore(number);
+    } else {
+      endTurn();
+    }
   }
 });
 
@@ -74,6 +78,7 @@ function endTurn() {
 
 function newGame() {
   resetScores();
+  gameOver = false;
   turn = 'p1';
   switchBackgroundP1();
 }
