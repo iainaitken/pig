@@ -2,6 +2,7 @@
 
 // DOM objects
 
+const dice = document.querySelector('.dice');
 const hold = document.querySelector('.btn--hold');
 const newGame = document.querySelector('.btn--new');
 const p1CurrentScore = document.querySelector('#current--0');
@@ -27,6 +28,7 @@ hold.addEventListener('click', function () {
 
 roll.addEventListener('click', function () {
   const number = randomNumber();
+  updateDice(number);
   if (number > 1) {
     updateCurrentScore(number);
   } else {
@@ -60,6 +62,10 @@ function resetScores() {
 function updateCurrentScore(number) {
   currentScore += number;
   updateDOMCurrentScore();
+}
+
+function updateDice(number) {
+  dice.src = `dice-${number}.png`;
 }
 
 function updateDOMCurrentScore() {
