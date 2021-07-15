@@ -2,14 +2,14 @@
 
 // DOM objects
 
+const btnHold = document.querySelector('.btn--hold');
+const btnNew = document.querySelector('.btn--new');
+const btnRoll = document.querySelector('.btn--roll');
 const dice = document.querySelector('.dice');
-const hold = document.querySelector('.btn--hold');
-const newGame = document.querySelector('.btn--new');
 const p1CurrentScore = document.querySelector('#current--0');
 const p2CurrentScore = document.querySelector('#current--1');
 const p1ScoreDOM = document.querySelector('#score--0');
 const p2ScoreDOM = document.querySelector('#score--1');
-const roll = document.querySelector('.btn--roll');
 
 // Variables
 
@@ -21,12 +21,14 @@ let turn = 'p1';
 
 // Event Listeners
 
-hold.addEventListener('click', function () {
+btnHold.addEventListener('click', function () {
   updateScore();
   endTurn();
 });
 
-roll.addEventListener('click', function () {
+btnNew.addEventListener('click', newGame);
+
+btnRoll.addEventListener('click', function () {
   const number = randomNumber();
   updateDice(number);
   if (number > 1) {
@@ -49,12 +51,30 @@ function endTurn() {
   changePlayer();
 }
 
+function newGame() {
+  resetScores();
+  turn = 'p1';
+}
+
 function randomNumber() {
   return Math.ceil(Math.random() * 6);
 }
 
 function resetCurrentScore() {
   currentScore = defaultScore;
+}
+
+function resetDOMScores() {
+  p1ScoreDOM.textContent = defaultScore;
+  p2ScoreDOM.textContent = defaultScore;
+}
+
+function resetScores() {
+  resetCurrentScore();
+  p1Score = defaultScore;
+  p2Score = defaultScore;
+  updateDOMCurrentScore();
+  resetDOMScores();
 }
 
 function updateCurrentScore(number) {
