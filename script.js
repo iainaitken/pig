@@ -1,10 +1,13 @@
 'use strict';
 
 const newGame = document.querySelector('.btn--new');
+const p1Score = document.querySelector('#score--0');
 const roll = document.querySelector('.btn--roll');
 
-roll.addEventListener('click', function () {
-  console.log(Math.ceil(Math.random() * 6));
-});
+roll.addEventListener('click', randomNumber);
 
-console.log(roll);
+console.log(p1Score);
+
+function randomNumber() {
+  console.log(Math.ceil(Math.random() * 6));
+}
