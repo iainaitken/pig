@@ -1,13 +1,23 @@
 'use strict';
 
+// Variables
+
+const defaultScore = 0;
 const newGame = document.querySelector('.btn--new');
-const p1Score = document.querySelector('#score--0');
+let p1Score = defaultScore;
+const p1ScoreDOM = document.querySelector('#score--0');
 const roll = document.querySelector('.btn--roll');
 
-roll.addEventListener('click', randomNumber);
+// Event Listeners
 
-console.log(p1Score);
+roll.addEventListener('click', function () {
+  const number = randomNumber();
+  p1Score += number;
+  console.log(p1Score);
+});
+
+// Functions
 
 function randomNumber() {
-  console.log(Math.ceil(Math.random() * 6));
+  return Math.ceil(Math.random() * 6);
 }
