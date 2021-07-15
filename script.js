@@ -22,8 +22,7 @@ roll.addEventListener('click', function () {
   if (number > 1) {
     updateCurrentScore(number);
   } else {
-    changePlayer();
-    currentScore = defaultScore;
+    endTurn();
   }
   console.log(turn, number, currentScore);
 });
@@ -40,9 +39,19 @@ function changePlayer() {
 
 function updateCurrentScore(number) {
   currentScore += number;
+  updateDOMScore();
+}
+
+function updateDOMScore() {
   if (turn === 'p1') {
     p1CurrentScore.textContent = currentScore;
   } else {
     p2CurrentScore.textContent = currentScore;
   }
+}
+
+function endTurn() {
+  currentScore = defaultScore;
+  updateDOMScore();
+  changePlayer();
 }
