@@ -10,6 +10,8 @@ const p1CurrentScore = document.querySelector('#current--0');
 const p2CurrentScore = document.querySelector('#current--1');
 const p1ScoreDOM = document.querySelector('#score--0');
 const p2ScoreDOM = document.querySelector('#score--1');
+const p1Section = document.querySelector('.player--0');
+const p2Section = document.querySelector('.player--1');
 
 // Variables
 
@@ -42,7 +44,15 @@ btnRoll.addEventListener('click', function () {
 // Functions
 
 function changePlayer() {
-  turn = turn === 'p1' ? 'p2' : 'p1';
+  if (turn === 'p1') {
+    turn = 'p2';
+    p1Section.classList.remove('player--active');
+    p2Section.classList.add('player--active');
+  } else {
+    turn = 'p1';
+    p2Section.classList.remove('player--active');
+    p1Section.classList.add('player--active');
+  }
 }
 
 function endTurn() {
