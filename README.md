@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/iainaitken/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="dice-6.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">project_title</h3>
@@ -55,9 +55,9 @@ Here's a blank template to get started:
 
 ### Built With
 
-* []()
-* []()
-* []()
+- []()
+- []()
+- []()
 
 ## Getting Started
 
@@ -67,7 +67,7 @@ To get a local copy up and running follow these simple steps.
 
 This is an example of how to list things you need to use the software and how to install them.
 
-* npm
+- npm
 
   ```sh
   npm install npm@latest -g
@@ -121,16 +121,12 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-
-
 ## Contact
-
-
 
 Project Link: [https://github.com/iainaitken/repo_name](https://github.com/iainaitken/repo_name)
 
 ## Acknowledgements
 
-* []()
-* []()
-* []()
+- []()
+- []()
+- []()
