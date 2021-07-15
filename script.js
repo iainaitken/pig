@@ -20,7 +20,7 @@ roll.addEventListener('click', function () {
   if (number > 1) {
     currentScore += number;
   } else {
-    turn = 'p2';
+    changePlayer();
     currentScore = defaultScore;
   }
   console.log(turn, number, currentScore);
@@ -30,4 +30,8 @@ roll.addEventListener('click', function () {
 
 function randomNumber() {
   return Math.ceil(Math.random() * 6);
+}
+
+function changePlayer() {
+  turn = turn === 'p1' ? 'p2' : 'p1';
 }
