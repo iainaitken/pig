@@ -46,12 +46,10 @@ btnRoll.addEventListener('click', function () {
 function changePlayer() {
   if (turn === 'p1') {
     turn = 'p2';
-    p1Section.classList.remove('player--active');
-    p2Section.classList.add('player--active');
+    switchBackgroundP2();
   } else {
     turn = 'p1';
-    p2Section.classList.remove('player--active');
-    p1Section.classList.add('player--active');
+    switchBackgroundP1();
   }
 }
 
@@ -64,6 +62,7 @@ function endTurn() {
 function newGame() {
   resetScores();
   turn = 'p1';
+  switchBackgroundP1();
 }
 
 function randomNumber() {
@@ -85,6 +84,16 @@ function resetScores() {
   p2Score = defaultScore;
   updateDOMCurrentScore();
   resetDOMScores();
+}
+
+function switchBackgroundP1() {
+  p2Section.classList.remove('player--active');
+  p1Section.classList.add('player--active');
+}
+
+function switchBackgroundP2() {
+  p1Section.classList.remove('player--active');
+  p2Section.classList.add('player--active');
 }
 
 function updateCurrentScore(number) {
