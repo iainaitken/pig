@@ -1,22 +1,26 @@
 'use strict';
 
-// Variables
+// DOM objects
 
-const defaultScore = 0;
 const newGame = document.querySelector('.btn--new');
-let p1Score = defaultScore;
 const p1ScoreDOM = document.querySelector('#score--0');
 const roll = document.querySelector('.btn--roll');
+
+// Variables
+
+let currentScore = 0;
+const defaultScore = 0;
+let p1Score = defaultScore;
 let turn = 'p1';
 
 // Event Listeners
 
 roll.addEventListener('click', function () {
   const number = randomNumber();
-  if (turn === 'p1') {
-    p1Score += number;
+  if (number > 1) {
+    currentScore += number;
   }
-  console.log(p1Score);
+  console.log(number, currentScore);
 });
 
 // Functions
