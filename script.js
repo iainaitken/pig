@@ -3,6 +3,7 @@
 // DOM objects
 
 const newGame = document.querySelector('.btn--new');
+const p1CurrentScore = document.querySelector('#current--0');
 const p1ScoreDOM = document.querySelector('#score--0');
 const roll = document.querySelector('.btn--roll');
 
@@ -19,6 +20,7 @@ roll.addEventListener('click', function () {
   const number = randomNumber();
   if (number > 1) {
     currentScore += number;
+    p1CurrentScore.textContent = currentScore;
   } else {
     changePlayer();
     currentScore = defaultScore;
