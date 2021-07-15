@@ -44,7 +44,7 @@ function changePlayer() {
 }
 
 function endTurn() {
-  resetScores();
+  resetCurrentScore();
   updateDOMCurrentScore();
   changePlayer();
 }
@@ -53,10 +53,8 @@ function randomNumber() {
   return Math.ceil(Math.random() * 6);
 }
 
-function resetScores() {
+function resetCurrentScore() {
   currentScore = defaultScore;
-  p1Score = defaultScore;
-  p2Score = defaultScore;
 }
 
 function updateCurrentScore(number) {
