@@ -8,8 +8,8 @@ const roll = document.querySelector('.btn--roll');
 
 // Variables
 
-let currentScore = 0;
 const defaultScore = 0;
+let currentScore = defaultScore;
 let p1Score = defaultScore;
 let turn = 'p1';
 
@@ -19,8 +19,11 @@ roll.addEventListener('click', function () {
   const number = randomNumber();
   if (number > 1) {
     currentScore += number;
+  } else {
+    turn = 'p2';
+    currentScore = defaultScore;
   }
-  console.log(number, currentScore);
+  console.log(turn, number, currentScore);
 });
 
 // Functions
