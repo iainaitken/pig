@@ -4,6 +4,7 @@
 
 const newGame = document.querySelector('.btn--new');
 const p1CurrentScore = document.querySelector('#current--0');
+const p2CurrentScore = document.querySelector('#current--1');
 const p1ScoreDOM = document.querySelector('#score--0');
 const roll = document.querySelector('.btn--roll');
 
@@ -19,8 +20,7 @@ let turn = 'p1';
 roll.addEventListener('click', function () {
   const number = randomNumber();
   if (number > 1) {
-    currentScore += number;
-    p1CurrentScore.textContent = currentScore;
+    updateCurrentScore(number);
   } else {
     changePlayer();
     currentScore = defaultScore;
@@ -36,4 +36,13 @@ function randomNumber() {
 
 function changePlayer() {
   turn = turn === 'p1' ? 'p2' : 'p1';
+}
+
+function updateCurrentScore(number) {
+  currentScore += number;
+  if (turn === 'p1') {
+    p1CurrentScore.textContent = currentScore;
+  } else {
+    p2CurrentScore.textContent = currentScore;
+  }
 }
