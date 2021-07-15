@@ -42,13 +42,19 @@ function changePlayer() {
 }
 
 function endTurn() {
-  currentScore = defaultScore;
+  resetScores();
   updateDOMCurrentScore();
   changePlayer();
 }
 
 function randomNumber() {
   return Math.ceil(Math.random() * 6);
+}
+
+function resetScores() {
+  currentScore = defaultScore;
+  p1Score = defaultScore;
+  p2Score = defaultScore;
 }
 
 function updateCurrentScore(number) {
