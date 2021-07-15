@@ -17,6 +17,7 @@ const p2Section = document.querySelector('.player--1');
 
 const defaultScore = 0;
 let currentScore = defaultScore;
+let gameOver = false;
 let p1Score = defaultScore;
 let p2Score = defaultScore;
 let turn = 'p1';
@@ -25,6 +26,7 @@ let turn = 'p1';
 
 btnHold.addEventListener('click', function () {
   updateScore();
+  checkWin();
   endTurn();
 });
 
@@ -38,7 +40,6 @@ btnRoll.addEventListener('click', function () {
   } else {
     endTurn();
   }
-  console.log(turn, number, currentScore);
 });
 
 // Functions
@@ -50,6 +51,18 @@ function changePlayer() {
   } else {
     turn = 'p1';
     switchBackgroundP1();
+  }
+}
+
+function checkWin() {
+  if (p1Score > 99) {
+    gameOver = true;
+    p1Section.classList.remove('player--active');
+    p1Section.classList.add('player--winner');
+  } else if (p2Score > 99) {
+    gameOver = true;
+    p2Section.classList.remove('player--active');
+    p2Section.classList.add('player--winner');
   }
 }
 
