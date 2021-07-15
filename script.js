@@ -59,11 +59,11 @@ function changePlayer() {
 }
 
 function checkWin() {
-  if (p1Score > 99) {
+  if (p1Score > 9) {
     gameOver = true;
     p1Section.classList.remove('player--active');
     p1Section.classList.add('player--winner');
-  } else if (p2Score > 99) {
+  } else if (p2Score > 9) {
     gameOver = true;
     p2Section.classList.remove('player--active');
     p2Section.classList.add('player--winner');
@@ -73,11 +73,14 @@ function checkWin() {
 function endTurn() {
   resetCurrentScore();
   updateDOMCurrentScore();
-  changePlayer();
+  if (!gameOver) {
+    changePlayer();
+  }
 }
 
 function newGame() {
   resetScores();
+  resetBackground();
   gameOver = false;
   turn = 'p1';
   switchBackgroundP1();
@@ -85,6 +88,16 @@ function newGame() {
 
 function randomNumber() {
   return Math.ceil(Math.random() * 6);
+}
+
+function resetBackground() {
+  if (turn === 'p1') {
+    p1Section.classList.remove('player--winner');
+    p1Section.classList.add('player--active');
+  } else {
+    p2Section.classList.remove('player--winner');
+    p1Section.classList.add('player--active');
+  }
 }
 
 function resetCurrentScore() {
