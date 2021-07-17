@@ -2,16 +2,16 @@
 
 // DOM objects
 
-const btnHold = document.querySelector('.btn--hold');
-const btnNew = document.querySelector('.btn--new');
-const btnRoll = document.querySelector('.btn--roll');
-const dice = document.querySelector('.dice');
-const p1CurrentScore = document.getElementById('current--0');
-const p2CurrentScore = document.getElementById('current--1');
-const p1ScoreDOM = document.getElementById('score--0');
-const p2ScoreDOM = document.getElementById('score--1');
-const p1Section = document.querySelector('.player--0');
-const p2Section = document.querySelector('.player--1');
+const btnHoldEl = document.querySelector('.btn--hold');
+const btnNewEl = document.querySelector('.btn--new');
+const btnRollEl = document.querySelector('.btn--roll');
+const diceEl = document.querySelector('.dice');
+const p1CurrentScoreEl = document.getElementById('current--0');
+const p2CurrentScoreEl = document.getElementById('current--1');
+const p1ScoreEl = document.getElementById('score--0');
+const p2ScoreEl = document.getElementById('score--1');
+const p1SectionEl = document.querySelector('.player--0');
+const p2SectionEl = document.querySelector('.player--1');
 
 // Variables
 
@@ -24,7 +24,7 @@ let turn = 'p1';
 
 // Event Listeners
 
-btnHold.addEventListener('click', function () {
+btnHoldEl.addEventListener('click', function () {
   if (!gameOver) {
     updateScore();
     checkWin();
@@ -32,9 +32,9 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-btnNew.addEventListener('click', newGame);
+btnNewEl.addEventListener('click', newGame);
 
-btnRoll.addEventListener('click', function () {
+btnRollEl.addEventListener('click', function () {
   if (!gameOver) {
     const number = randomNumber();
     updateDice(number);
@@ -61,14 +61,14 @@ function changePlayer() {
 function checkWin() {
   if (p1Score > 99) {
     gameOver = true;
-    dice.classList.add('hidden');
-    p1Section.classList.remove('player--active');
-    p1Section.classList.add('player--winner');
+    diceEl.classList.add('hidden');
+    p1SectionEl.classList.remove('player--active');
+    p1SectionEl.classList.add('player--winner');
   } else if (p2Score > 99) {
     gameOver = true;
-    dice.classList.add('hidden');
-    p2Section.classList.remove('player--active');
-    p2Section.classList.add('player--winner');
+    diceEl.classList.add('hidden');
+    p2SectionEl.classList.remove('player--active');
+    p2SectionEl.classList.add('player--winner');
   }
 }
 
@@ -94,11 +94,11 @@ function randomNumber() {
 
 function resetBackground() {
   if (turn === 'p1') {
-    p1Section.classList.remove('player--winner');
-    p1Section.classList.add('player--active');
+    p1SectionEl.classList.remove('player--winner');
+    p1SectionEl.classList.add('player--active');
   } else {
-    p2Section.classList.remove('player--winner');
-    p1Section.classList.add('player--active');
+    p2SectionEl.classList.remove('player--winner');
+    p1SectionEl.classList.add('player--active');
   }
 }
 
@@ -107,8 +107,8 @@ function resetCurrentScore() {
 }
 
 function resetDOMScores() {
-  p1ScoreDOM.textContent = defaultScore;
-  p2ScoreDOM.textContent = defaultScore;
+  p1ScoreEl.textContent = defaultScore;
+  p2ScoreEl.textContent = defaultScore;
 }
 
 function resetScores() {
@@ -120,13 +120,13 @@ function resetScores() {
 }
 
 function switchBackgroundP1() {
-  p2Section.classList.remove('player--active');
-  p1Section.classList.add('player--active');
+  p2SectionEl.classList.remove('player--active');
+  p1SectionEl.classList.add('player--active');
 }
 
 function switchBackgroundP2() {
   p1Section.classList.remove('player--active');
-  p2Section.classList.add('player--active');
+  p2SectionEl.classList.add('player--active');
 }
 
 function updateCurrentScore(number) {
@@ -135,24 +135,24 @@ function updateCurrentScore(number) {
 }
 
 function updateDice(number) {
-  dice.classList.remove('hidden');
-  dice.src = `dice-${number}.png`;
+  diceEl.classList.remove('hidden');
+  diceEl.src = `dice-${number}.png`;
 }
 
 function updateDOMCurrentScore() {
   if (turn === 'p1') {
-    p1CurrentScore.textContent = currentScore;
+    p1CurrentScoreEl.textContent = currentScore;
   } else {
-    p2CurrentScore.textContent = currentScore;
+    p2CurrentScoreEl.textContent = currentScore;
   }
 }
 
 function updateScore() {
   if (turn === 'p1') {
     p1Score += currentScore;
-    p1ScoreDOM.textContent = p1Score;
+    p1ScoreEl.textContent = p1Score;
   } else {
     p2Score += currentScore;
-    p2ScoreDOM.textContent = p2Score;
+    p2ScoreEl.textContent = p2Score;
   }
 }
