@@ -6,10 +6,10 @@ const btnHold = document.querySelector('.btn--hold');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const dice = document.querySelector('.dice');
-const p1CurrentScore = document.querySelector('#current--0');
-const p2CurrentScore = document.querySelector('#current--1');
-const p1ScoreDOM = document.querySelector('#score--0');
-const p2ScoreDOM = document.querySelector('#score--1');
+const p1CurrentScore = document.getElementById('current--0');
+const p2CurrentScore = document.getElementById('current--1');
+const p1ScoreDOM = document.getElementById('score--0');
+const p2ScoreDOM = document.getElementById('score--1');
 const p1Section = document.querySelector('.player--0');
 const p2Section = document.querySelector('.player--1');
 

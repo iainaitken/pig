@@ -68,6 +68,8 @@ My approach was to play the game and then attempt to build the JS game logic wit
 
 Learning points:
 
+- Using `document.getElementById` is preferred to `document.querySelector` when selecting an html element by ID, as it is faster.
+
 ### Built With
 
 - JavaScript
