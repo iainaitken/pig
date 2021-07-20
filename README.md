@@ -73,7 +73,8 @@ Learning points:
 - Try to work from a plan, diagram or flowchart as this will help with the design and implementation of the game logic. Use code comments and psuedocode to help plan out program.
 - JS again used the 'trunc' method rather than the 'ceil' method to generate a random number.
 - Good use of string literals in my code to switch the image of the rolled die.
--
+- Can use an array/hash etc to store the scores rather than variables, so it would be useful to keep to 0 and 1 naming conventions. Also if active player is either 0 or 1 then we can use string literals to select the relevant elements on the page.
+- Can use `classList.toggle` as an easy way to switch an element from hidden to visible, or to switch the active player.
 
 ### Built With
 
