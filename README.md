@@ -70,6 +70,10 @@ Learning points:
 
 - Using `document.getElementById` is preferred to `document.querySelector` when selecting an html element by ID, as it is faster.
 - Appending 'El' (which stands for element) is a way to distinguish between variables in our program and elements in the DOM that have the same name.
+- Try to work from a plan, diagram or flowchart as this will help with the design and implementation of the game logic. Use code comments and psuedocode to help plan out program.
+- JS again used the 'trunc' method rather than the 'ceil' method to generate a random number.
+- Good use of string literals in my code to switch the image of the rolled die.
+-
 
 ### Built With
 
